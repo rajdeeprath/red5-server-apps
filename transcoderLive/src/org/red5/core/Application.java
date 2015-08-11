@@ -23,7 +23,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.red5.logging.Red5LoggerFactory;
 import org.red5.server.adapter.MultiThreadedApplicationAdapter;
 import org.red5.server.api.IConnection;
 import org.red5.server.api.Red5;
@@ -46,6 +45,7 @@ import com.flashvisions.server.rtmp.transcoder.pojo.io.StreamMedia;
  * 
  * @author The Red5 Project (red5@osflash.org)
  */
+@SuppressWarnings("unused")
 public class Application extends MultiThreadedApplicationAdapter {
 	
 	
