@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipsewtp.jst.server.generic.red5.runtimeClasspathProvider/Red5 Server Runtime 2">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/antlr-3.5.2.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/antlr-runtime-3.5.2.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/asm-4.0.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/aspectjrt-1.8.2.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/bcprov-jdk15on-1.52.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/c3p0-0.9.1.1.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/cglib-nodep-2.2.2.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/commons-beanutils-1.9.2.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/commons-daemon-1.0.15.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/commons-pool-1.5.6.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/ehcache-core-2.6.9.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/groovy-2.0.4.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/httpclient-4.4.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/httpcore-4.4.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/isoparser-1.0.4.2.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/jaudiotagger-2.0.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/jcl-over-slf4j-1.7.9.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/jruby-1.6.8.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/jul-to-slf4j-1.7.9.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/jython-standalone-2.5.3.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/log4j-over-slf4j-1.7.9.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/logback-access-1.1.2.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/logback-classic-1.1.2.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/logback-core-1.1.2.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/mina-core-2.0.9.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/mina-integration-beans-2.0.9.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/mina-integration-jmx-2.0.9.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/mina-integration-ognl-2.0.9.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/quartz-2.2.1.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/red5-io-1.0.6-RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/red5-server-common-1.0.6-RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/slf4j-api-1.7.9.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/spring-aop-4.1.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/spring-beans-4.1.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/spring-context-4.1.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/spring-context-support-4.1.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/spring-core-4.1.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/spring-expression-4.1.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/spring-web-4.1.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/xercesImpl-2.9.1.jar"/>
+	<classpathentry kind="lib" path="F:/red5-server-1.0.6/lib/xml-apis-1.3.04.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
