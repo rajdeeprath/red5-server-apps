@@ -1,14 +1,15 @@
 package org.red5.server.api.stream;
 
 import org.red5.server.api.IClient;
+import org.red5.server.api.IConnection;
 import org.red5.server.api.stream.data.DVRStreamInfo;
 import org.red5.server.api.stream.data.ExtendedDVRStreamInfo;
 
 public interface IDVRStream {
 
-	public void publish(IClient client);
+	public void publish(IConnection conn);
 	
-	public void unpublish(IClient client);
+	public void unpublish(IConnection client);
 	
 	public boolean isInUse();
 	

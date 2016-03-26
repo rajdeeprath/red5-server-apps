@@ -1,6 +1,7 @@
 package org.red5.server.api.stream;
 
 import org.red5.server.api.IClient;
+import org.red5.server.api.IConnection;
 import org.red5.server.api.stream.data.DVRStreamInfo;
 import org.red5.server.api.stream.data.ExtendedDVRStreamInfo;
 
@@ -14,17 +15,25 @@ public class DVRStream implements IDVRStream {
 	private DVRStreamInfo streamInfo = null;
 	
 	private boolean isRecording = false;
+	
+	
+	
+	public DVRStream(String name) {
+		this.name = name;
+	}
+	
+	
 
 	@Override
-	public void publish(IClient client) {
+	public void publish(IConnection conn) {
 		// TODO Auto-generated method stub
-		
+		this.publisher = conn;
 	}
 
 	@Override
-	public void unpublish(IClient client) {
+	public void unpublish(IConnection client) {
 		// TODO Auto-generated method stub
-		
+		this.publisher = null;
 	}
 
 	@Override
