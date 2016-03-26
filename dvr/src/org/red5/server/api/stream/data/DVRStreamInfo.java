@@ -10,7 +10,7 @@ public class DVRStreamInfo {
 	
 	public Object stopRec;
 	
-	public long maxLen;
+	public double maxLen;
 	
 	public long begOffset;
 	

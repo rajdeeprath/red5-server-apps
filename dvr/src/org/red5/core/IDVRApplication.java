@@ -1,6 +1,6 @@
 package org.red5.core;
 
-import org.red5.server.api.stream.data.DVRStreamInfo;
+import org.red5.server.api.stream.data.DVRInfo;
 import org.red5.server.api.stream.data.ExtendedDVRStreamInfo;
 
 public interface IDVRApplication {
@@ -11,7 +11,7 @@ public interface IDVRApplication {
 	
 	public void DVRUnSubscribe(String name);
 	
-	public void DVRSetStreamInfo(DVRStreamInfo name);
+	public void DVRSetStreamInfo(ExtendedDVRStreamInfo info);
 	
-	public ExtendedDVRStreamInfo DVRGetStreamInfo(String streamName);
+	public DVRInfo DVRGetStreamInfo(String streamName);
 }

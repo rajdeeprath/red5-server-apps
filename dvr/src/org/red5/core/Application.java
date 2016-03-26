@@ -35,7 +35,7 @@ import org.red5.server.api.stream.DVRStream;
 import org.red5.server.api.stream.IBroadcastStream;
 import org.red5.server.api.stream.IDVRStream;
 import org.red5.server.api.stream.ISubscriberStream;
-import org.red5.server.api.stream.data.DVRStreamInfo;
+import org.red5.server.api.stream.data.DVRInfo;
 import org.red5.server.api.stream.data.ExtendedDVRStreamInfo;
 import org.red5.server.api.stream.data.StatusCode;
 import org.slf4j.Logger;
@@ -52,6 +52,7 @@ public class Application extends MultiThreadedApplicationAdapter implements IDVR
 	private static HashMap<String, IDVRStream> streams;
 	private static Double VERSION = 1.0;
 	
+	private IScope appScope;
 
 
 	@Override
@@ -75,6 +76,7 @@ public class Application extends MultiThreadedApplicationAdapter implements IDVR
 	@Override
 	public boolean appStart(IScope arg0) {
 		// TODO Auto-generated method stub
+		appScope = arg0;
 		streams = new HashMap<String, IDVRStream>();
 		return super.appStart(arg0);
 	}
@@ -101,7 +103,7 @@ public class Application extends MultiThreadedApplicationAdapter implements IDVR
 		if(streams.containsKey(streamFullName) && create)
 		{
 			log.debug("Creating new dvr stream reference");
-			streams.put(streamFullName, new DVRStream(streamFullName));
+			streams.put(streamFullName, new DVRStream(streamFullName, appScope, this));
 		}
 		
 		IDVRStream stream = (streams.containsKey(streamFullName))?streams.get(streamFullName):null;
@@ -236,7 +238,7 @@ public class Application extends MultiThreadedApplicationAdapter implements IDVR
 	
 	
 	@Override
-	public void DVRSetStreamInfo(DVRStreamInfo info) {
+	public void DVRSetStreamInfo(ExtendedDVRStreamInfo info) {
 		// TODO Auto-generated method stub
 		log.debug("Inside DVRSetStreamInfo");
 		
@@ -249,7 +251,7 @@ public class Application extends MultiThreadedApplicationAdapter implements IDVR
 	
 	
 	@Override
-	public ExtendedDVRStreamInfo DVRGetStreamInfo(String streamName) {
+	public DVRInfo DVRGetStreamInfo(String streamName) {
 		// TODO Auto-generated method stub
 		log.debug("Inside ExtendedDVRStreamInfo");
 		
@@ -269,7 +271,6 @@ public class Application extends MultiThreadedApplicationAdapter implements IDVR
 	public void streamBroadcastStart(IBroadcastStream stream) {
 		// TODO Auto-generated method stub
 		log.debug("Inside streamBroadcastStart");
-		
 		super.streamBroadcastStart(stream);
 	}
 
@@ -322,7 +323,6 @@ public class Application extends MultiThreadedApplicationAdapter implements IDVR
 	public void streamRecordStart(IBroadcastStream stream) {
 		// TODO Auto-generated method stub
 		log.debug("Inside streamRecordStart");
-		
 		super.streamRecordStart(stream);
 	}
 
@@ -342,7 +342,6 @@ public class Application extends MultiThreadedApplicationAdapter implements IDVR
 	public void streamSubscriberClose(ISubscriberStream stream) {
 		// TODO Auto-generated method stub
 		log.debug("Inside streamSubscriberClose");
-		
 		super.streamSubscriberClose(stream);
 	}
 

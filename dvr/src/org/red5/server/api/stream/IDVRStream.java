@@ -2,7 +2,7 @@ package org.red5.server.api.stream;
 
 import org.red5.server.api.IClient;
 import org.red5.server.api.IConnection;
-import org.red5.server.api.stream.data.DVRStreamInfo;
+import org.red5.server.api.stream.data.DVRInfo;
 import org.red5.server.api.stream.data.ExtendedDVRStreamInfo;
 
 public interface IDVRStream {
@@ -13,13 +13,13 @@ public interface IDVRStream {
 	
 	public boolean isInUse();
 	
-	public boolean shutdown();
+	public void shutdown();
 	
-	public void getDefaultStreamInfo(ExtendedDVRStreamInfo info);
+	public void getDefaultStreamInfo(DVRInfo info);
 	
-	public ExtendedDVRStreamInfo getStreamInfo();
+	public DVRInfo getStreamInfo();
 	
-	public void setStreamInfo(DVRStreamInfo streamInfo);
+	public void setStreamInfo(ExtendedDVRStreamInfo streamInfo);
 	
 	public void onStopRecord();
 	
