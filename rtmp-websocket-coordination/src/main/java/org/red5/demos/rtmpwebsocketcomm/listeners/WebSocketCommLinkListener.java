@@ -3,7 +3,8 @@ package org.red5.demos.rtmpwebsocketcomm.listeners;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.red5.demos.rtmpwebsocketcomm.router.impl.ArduinoCommLinkRouter;
+import org.red5.demos.rtmpwebsocketcomm.router.impl.CommLinkRouter;
+import org.red5.demos.rtmpwebsocketcomm.utils.CommlinkUtils;
 import org.red5.logging.Red5LoggerFactory;
 import org.red5.net.websocket.WebSocketConnection;
 import org.red5.net.websocket.listener.WebSocketDataListener;
@@ -15,7 +16,7 @@ public class WebSocketCommLinkListener extends WebSocketDataListener {
 
 	private static final Logger logger = Red5LoggerFactory.getLogger(WebSocketCommLinkListener.class);
 	private Set<WebSocketConnection> connections = new HashSet<WebSocketConnection>();
-	private ArduinoCommLinkRouter router;
+	private CommLinkRouter router;
 	
 	
 	@Override
@@ -60,7 +61,7 @@ public class WebSocketCommLinkListener extends WebSocketDataListener {
 		// TODO Auto-generated method stub
 
 		logger.info("onWSConnect");
-		logger.debug("WebSocket connection path: {}", conn.getPath());
+		logger.info("Requesting connection for scope " + CommlinkUtils.getScopePath(conn));
 		
 		connections.add(conn);
 	}
@@ -80,14 +81,14 @@ public class WebSocketCommLinkListener extends WebSocketDataListener {
 
 
 
-	public ArduinoCommLinkRouter getRouter() {
+	public CommLinkRouter getRouter() {
 		return router;
 	}
 
 
 
 
-	public void setRouter(ArduinoCommLinkRouter router) {
+	public void setRouter(CommLinkRouter router) {
 		this.router = router;
 	}
 

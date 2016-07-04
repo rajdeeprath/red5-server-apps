@@ -7,7 +7,7 @@ import org.red5.server.api.scope.IScope;
 import org.slf4j.Logger;
 
 
-public class ArduinoCommLinkRouter
+public class CommLinkRouter
 {
     private static Logger log = Red5LoggerFactory.getLogger(Application.class);
     

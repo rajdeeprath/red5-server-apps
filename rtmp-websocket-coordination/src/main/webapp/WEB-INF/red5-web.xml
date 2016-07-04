@@ -27,7 +27,7 @@
     <bean id="web.handler" class="org.red5.demos.rtmpwebsocketcomm.Application" />
     
     
-    <bean id="router" class="com.flashvisions.server.red5.arduino.router.impl.ArduinoCommLinkRouter">
+    <bean id="router" class="org.red5.demos.rtmpwebsocketcomm.router.impl.CommLinkRouter">
         <property name="app" ref="web.handler" />
     </bean>
     
@@ -46,6 +46,7 @@
             <list>
                 <bean id="commLinkListener" class="org.red5.demos.rtmpwebsocketcomm.listeners.WebSocketCommLinkListener">
                     <property name="router" ref="router" />
+                    <property name="protocol" value="commlink" />
                 </bean>
             </list>
         </property>
