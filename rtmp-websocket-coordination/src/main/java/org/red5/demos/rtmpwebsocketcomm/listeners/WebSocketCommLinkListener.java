@@ -1,5 +1,6 @@
 package org.red5.demos.rtmpwebsocketcomm.listeners;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,7 +9,7 @@ import org.red5.demos.rtmpwebsocketcomm.utils.CommlinkUtils;
 import org.red5.logging.Red5LoggerFactory;
 import org.red5.net.websocket.WebSocketConnection;
 import org.red5.net.websocket.listener.WebSocketDataListener;
-import org.red5.net.websocket.model.WSMessage;
+import org.red5.net.websocket.model.*;
 import org.slf4j.Logger;
 
 public class WebSocketCommLinkListener extends WebSocketDataListener {
@@ -24,6 +25,21 @@ public class WebSocketCommLinkListener extends WebSocketDataListener {
 		// TODO Auto-generated method stub
 
 		logger.info("onWSMessage - Message received");
+		
+		switch(message.getMessageType())
+		{
+			case PING:
+			break;
+			
+			case PONG:
+			break;
+				
+			case CLOSE:
+			break;
+				
+			case TEXT:
+			break;
+		}
         
 	}
 
@@ -77,6 +93,35 @@ public class WebSocketCommLinkListener extends WebSocketDataListener {
 		if(connections.contains(conn))
 		connections.remove(conn);
 	}
+	
+	
+	
+	
+	/**
+    * Send message to all connected connections.
+    * 
+    * @param path
+    * @param msg
+    */
+   public void sendToAll(String path, String message) {
+       for (WebSocketConnection conn : connections) {
+           if (path.equals(conn.getPath())) 
+           {
+               try 
+               {
+                   conn.send(message);
+               } 
+               catch (UnsupportedEncodingException e) 
+               {
+            	   logger.warn("Error sending messages" + e.getMessage());
+               }
+           } 
+           else 
+           {
+               logger.warn("Path did not match for message {} != {}", path, conn.getPath());
+           }
+       }
+   }
 
 
 
@@ -90,6 +135,7 @@ public class WebSocketCommLinkListener extends WebSocketDataListener {
 
 	public void setRouter(CommLinkRouter router) {
 		this.router = router;
+		this.router.setWsListener(this);
 	}
 
 }
