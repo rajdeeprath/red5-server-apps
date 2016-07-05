@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.red5.demos.rtmpwebsocketcomm.Mode;
 import org.red5.demos.rtmpwebsocketcomm.router.impl.CommLinkRouter;
 import org.red5.demos.rtmpwebsocketcomm.utils.CommlinkUtils;
 import org.red5.logging.Red5LoggerFactory;
@@ -18,6 +19,26 @@ public class WebSocketCommLinkListener extends WebSocketDataListener {
 	private static final Logger logger = Red5LoggerFactory.getLogger(WebSocketCommLinkListener.class);
 	private Set<WebSocketConnection> connections = new HashSet<WebSocketConnection>();
 	private CommLinkRouter router;
+	
+	private Mode mode;
+
+
+	
+	
+	
+
+	public Mode getMode() {
+		return mode;
+	}
+
+
+
+
+
+
+	public void setMode(Mode mode) {
+		this.mode = mode;
+	}
 	
 	
 	@Override
@@ -78,6 +99,8 @@ public class WebSocketCommLinkListener extends WebSocketDataListener {
 
 		logger.info("onWSConnect");
 		logger.info("Requesting connection for scope " + CommlinkUtils.getScopePath(conn));
+		
+		
 		
 		connections.add(conn);
 	}

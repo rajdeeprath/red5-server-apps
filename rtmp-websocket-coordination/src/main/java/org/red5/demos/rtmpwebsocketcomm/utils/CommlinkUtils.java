@@ -6,12 +6,15 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.red5.demos.rtmpwebsocketcomm.Mode;
+import org.red5.logging.Red5LoggerFactory;
 import org.red5.net.websocket.WebSocketConnection;
 import org.red5.server.api.IConnection;
+import org.slf4j.Logger;
 
 public class CommlinkUtils {
 	
-	
+	private static final Logger logger = Red5LoggerFactory.getLogger(CommlinkUtils.class);
 	
 	public static String getScopePath(IConnection conn)
 	{
@@ -26,6 +29,39 @@ public class CommlinkUtils {
 		}
 	}
 	
+	
+	
+	
+	public static Mode getMode(Object conn)
+	{
+		try
+		{
+			if(conn instanceof IConnection)
+			{
+				IConnection connection = (IConnection) conn;
+				String queryString = (String) connection.getConnectParams().get("queryString");
+				if(queryString != null && queryString.length()>1)
+				return Mode.QUERYSTRING;
+				else
+				return Mode.PATH;
+			}
+			else if(conn instanceof WebSocketConnection)
+			{
+				WebSocketConnection connection = (WebSocketConnection) conn;
+				Map<String, ?> queryStringMap = connection.getQuerystringParameters();
+				if(queryStringMap != null && queryStringMap.size()>1)
+				return Mode.QUERYSTRING;
+				else
+				return Mode.PATH;
+			}
+		}
+		catch(Exception e)
+		{
+			logger.error("Unable to determine mode " + e.getMessage());
+		}
+		
+		return Mode.UNKNOWN;
+	}
 	
 	
 	
@@ -69,7 +105,6 @@ public class CommlinkUtils {
 		
 		for (Map.Entry<String, ?> entry : queryStringMap.entrySet())
 		{
-		    System.out.println(entry.getKey() + "/" + entry.getValue());
 		    if(entry.getKey().startsWith("?"))
 		    {
 		    	String key = entry.getKey().substring(1);
