@@ -119,7 +119,7 @@ ws:://{host}:8081/{application}/conference1
 
 No matter which option you choose the challenge lies iny connecting the websocket client to a scope for sending  / receiving messages to / from RTMP clients. The answer to this can be found in the virtual `route`” implementation `(Router.java or CommLinkRouter.java)`. Given below is the function which achieves that.
 
-NOTE: this funtion is adapted from the original example of [red5 websocket chat](#https://github.com/Red5/red5-websocket-chat) posted by Paul Gregoire.
+>>NOTE: this funtion is adapted from the original example of [red5 websocket chat](#https://github.com/Red5/red5-websocket-chat) posted by Paul Gregoire.
 ```
     /**
      * Get the Shared object for a given path.
@@ -167,3 +167,13 @@ NOTE: this funtion is adapted from the original example of [red5 websocket chat]
     }
 
 ```
+
+#### Explaination:
+
+The function accepts a `path` which is the location of the scope that the websocket client is interested in for messages. This can be parsed from a query string or the websocket path (as discussed before). the second parameter is the schared object name that is wishes to convery messages on. This name nseds to be same for rtmp and websocket clients. 
+
+The function tries to first find the scope by at the given location `path`. If it fails to find one it wil attempt to create one. If atleast one RTMP client is connected to the scope it will persist automatically else it will be lost.
+
+Once we have a scope we attempt to connect to a shared object in it by the name `soname`. As with the scope, we have to force create a new shared object if we cant find an existing one. Finally you `acquire` it and register a [`ISharedObjectListener`](#http://red5.org/javadoc/red5-server-common/org/red5/server/api/so/class-use/ISharedObjectListener.html) on it. this is to receieve notification when an event occurs on the SharedObject.
+
+>> NOTE: As a good programming habit make sure to `release` the acquired object when you know it wont be used anymore.
