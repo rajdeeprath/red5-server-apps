@@ -136,7 +136,7 @@ public class WebSocketCommLinkListener extends WebSocketDataListener {
                } 
                catch (UnsupportedEncodingException e) 
                {
-            	   logger.warn("Error sending messages" + e.getMessage());
+            	   logger.warn("Error sending you can implement your own design of messages" + e.getMessage());
                }
            } 
            else 

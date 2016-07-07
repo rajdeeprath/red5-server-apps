@@ -119,7 +119,7 @@ ws:://{host}:8081/{application}/conference1
 
 No matter which option you choose the challenge lies iny connecting the websocket client to a scope for sending  / receiving messages to / from RTMP clients. The answer to this can be found in the virtual `route`” implementation `(Router.java or CommLinkRouter.java)`. Given below is the function which achieves that.
 
->>NOTE: this funtion is adapted from the original example of [red5 websocket chat](#https://github.com/Red5/red5-websocket-chat) posted by Paul Gregoire.
+>>NOTE: this function is adapted from the original example of [red5 websocket chat](#https://github.com/Red5/red5-websocket-chat) posted by Paul Gregoire. I would recommend you to clone the project repo to your own system and open it up in your eclipse IDE. 
 ```
     /**
      * Get the Shared object for a given path.
@@ -174,6 +174,75 @@ The function accepts a `path` which is the location of the scope that the websoc
 
 The function tries to first find the scope by at the given location `path`. If it fails to find one it wil attempt to create one. If atleast one RTMP client is connected to the scope it will persist automatically else it will be lost.
 
-Once we have a scope we attempt to connect to a shared object in it by the name `soname`. As with the scope, we have to force create a new shared object if we cant find an existing one. Finally you `acquire` it and register a [`ISharedObjectListener`](#http://red5.org/javadoc/red5-server-common/org/red5/server/api/so/class-use/ISharedObjectListener.html) on it. this is to receieve notification when an event occurs on the SharedObject.
+Once we have a scope we attempt to connect to a shared object in it by the name `soname`. As with the scope, we have to force create a new shared object if we cant find an existing one. Finally you `acquire` it and register a [`ISharedObjectListener`](#http://red5.org/javadoc/red5-server-common/org/red5/server/api/so/class-use/ISharedObjectListener.html) on it. this is to receieve notification when an event occurs on the SharedObject. A `SharedObjectListener` is used to monitor events occuring on the acquired [`SharedObject`](#http://red5.org/javadoc/red5-server-common/org/red5/server/so/SharedObject.html). The typical logic here is to update a attribute on the shared object such that it automatically triggers a sync event to all listeners (including flash clients).
 
 >> NOTE: As a good programming habit make sure to `release` the acquired object when you know it wont be used anymore.
+
+
+Now if we look at out ISharedObjectListener implementation for listening to this shared object, it would look like this:
+
+```
+private final class SharedObjectListener implements ISharedObjectListener 
+{
+
+    private final CommLinkRouter router;
+
+    private final IScope scope;
+
+    private final String path;
+
+    SharedObjectListener(CommLinkRouter router, IScope scope, String path) {
+        log.debug("path: {} scope: {}", path, scope);
+        this.router = router;
+        this.scope = scope;
+        this.path = path;
+    }
+
+    @Override
+	public void onSharedObjectClear(ISharedObjectBase so) {
+        log.debug("onSharedObjectClear path: {}", path);
+    }
+
+    @Override
+	public void onSharedObjectConnect(ISharedObjectBase so) {
+        log.debug("onSharedObjectConnect path: {}", path);
+    }
+
+    @Override
+	public void onSharedObjectDelete(ISharedObjectBase so, String key) {
+        log.debug("onSharedObjectDelete path: {} key: {}", path, key);
+    }
+
+    @Override
+	public void onSharedObjectDisconnect(ISharedObjectBase so) {
+        log.debug("onSharedObjectDisconnect path: {}", path);
+    }
+
+    @Override
+	public void onSharedObjectSend(ISharedObjectBase so, String method, List<?> attributes) {
+        log.debug("onSharedObjectSend path: {} - method: {} {}", path, method, attributes);
+    }
+
+    @Override
+	public void onSharedObjectUpdate(ISharedObjectBase so, IAttributeStore attributes) {
+        log.debug("onSharedObjectUpdate path: {} - {}", path, attributes);
+    }
+
+    @Override
+	public void onSharedObjectUpdate(ISharedObjectBase so, Map<String, Object> attributes) {
+        log.debug("onSharedObjectUpdate path: {} - {}", path, attributes);
+    }
+
+    @Override
+	public void onSharedObjectUpdate(ISharedObjectBase so, String key, Object value) {
+        log.debug("onSharedObjectUpdate path: {} - {} = {}", path, key, value);
+        // route to the websockets if we have an RTMP connection as the originator, otherwise websockets will get duplicate messages
+        if (Red5.getConnectionLocal() != null) {
+            router.route(scope, value.toString());
+        }
+    }
+
+}
+```
+
+In thr above class `SharedObjectListener` note the method `onSharedObjectUpdate`. On shared object update event we check to make sure that only messages from RTMP clients are relayed to WebSocket Clients. Messages from WebSocket clients are not to prevent duplicate messages. If however you want to send messages from websocket to websocket as well you can design your own unicast / multicast where you check certain parameters such as IP address and relay messages only to specific websocket connections. This is a food for thought and would be left of as a implementation exercise for readers.
