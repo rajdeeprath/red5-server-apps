@@ -7,7 +7,7 @@ I won't start explaining what is websockets how it evolved..blah blah because th
 NOTE:
 Don't get ahead of yourself looking up websocket frameworks such as spring websockets or similar. This will just create more trouble. Websockets is already a part of red5 / red5 pro and it knows how to do handshake, how to decode , encode etc. Avoid any third party java-websocket frameworks and just start with vanilla.
 
-There is a very clean and simple websocket integration example by Paul Gregoire posted on github : https://github.com/Red5/red5-websocket. Make sure to study it first if you are going to build something of your own.
+There is a very clean and simple websocket integration example by Paul Gregoire posted on github : https://github.com/Red5/red5-websocket-chat. Make sure to study it first if you are going to build something of your own.
 
 
 Traditional system of using a flash client for a chat application involved connecting the flash client to the application a at a particular scope in Red5. Before we proceed to websockets let's try to understand what a scope is in Red5. It is important to understand what scopes are and how a traditional flash client uses them before we try to address the issues of using scopes with websockets.
@@ -68,7 +68,7 @@ ws:://{host}:8081/{application}?scope=conference1
 
 * When you use this method you will need to parse out the scope variable value from querystring.
 
-* Your clients will all be connecting to the top most level (application level scope).
+* Your clients will all be connecting to the top most level (application level).
 
 * You need to design a mechanism to generate a unique name for your shared objects using the scope requested (since all connections are on single level) . You then need to check if the shared object exists else create it with the evaluated name. 
 
@@ -117,9 +117,9 @@ ws:://{host}:8081/{application}/conference1
 ```
 
 
-No matter which option you choose the challenge lies iny connecting the websocket client to a scope for sending  / receiving messages to / from RTMP clients. The answer to this can be found in the virtual `route`” implementation `(Router.java or CommLinkRouter.java)`. Given below is the function which achieves that.
+No matter which option you choose the challenge lies iny connecting the websocket client to a scope for sending  / receiving messages to / from RTMP clients. The answer to this can be found in the virtual `route`” implementation `(Router.java)`. Given below is the function which achieves that.
 
->>NOTE: this function is adapted from the original example of [red5 websocket chat](#https://github.com/Red5/red5-websocket-chat) posted by Paul Gregoire. I would recommend you to clone the project repo to your own system and open it up in your eclipse IDE. 
+>>NOTE: this function is adapted from the original example of [red5 websocket chat](#https://github.com/Red5/red5-websocket-chat) posted by `Paul Gregoire`. I would recommend you to clone the project repo to your own system and open it up in your eclipse IDE. 
 ```
     /**
      * Get the Shared object for a given path.
@@ -179,19 +179,19 @@ Once we have a scope we attempt to connect to a shared object in it by the name 
 >> NOTE: As a good programming habit make sure to `release` the acquired object when you know it wont be used anymore.
 
 
-Now if we look at out ISharedObjectListener implementation for listening to this shared object, it would look like this:
+Now if we look at our ISharedObjectListener implementation for listening to this shared object, it would look like this:
 
 ```
 private final class SharedObjectListener implements ISharedObjectListener 
 {
 
-    private final CommLinkRouter router;
+    private final Router router;
 
     private final IScope scope;
 
     private final String path;
 
-    SharedObjectListener(CommLinkRouter router, IScope scope, String path) {
+    SharedObjectListener(Router router, IScope scope, String path) {
         log.debug("path: {} scope: {}", path, scope);
         this.router = router;
         this.scope = scope;
@@ -245,4 +245,4 @@ private final class SharedObjectListener implements ISharedObjectListener
 }
 ```
 
-In thr above class `SharedObjectListener` note the method `onSharedObjectUpdate`. On shared object update event we check to make sure that only messages from RTMP clients are relayed to WebSocket Clients. Messages from WebSocket clients are not to prevent duplicate messages. If however you want to send messages from websocket to websocket as well you can design your own unicast / multicast where you check certain parameters such as IP address and relay messages only to specific websocket connections. This is a food for thought and would be left of as a implementation exercise for readers.
+In thr above class `SharedObjectListener` note the method `onSharedObjectUpdate`. On shared object update event we check to make sure that only messages from RTMP clients are relayed to WebSocket Clients. Messages from WebSocket clients are not to prevent duplicate messages. If however you want to send messages from websocket to websocket as well you can design your own unicast / multicast where you check certain parameters such as IP address and relay messages only to specific websocket connections. This is a food for thought and would be left of as a implementation exercise for `truth seekers` :).
