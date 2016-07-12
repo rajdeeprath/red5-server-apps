@@ -147,7 +147,7 @@ ws:://{host}:8081/{application}/conference1
 ```
 
 
-No matter which option you choose the challenge lies iny connecting the websocket client to a scope for sending  / receiving messages to / from RTMP clients. The answer to this can be found in the virtual `route`” implementation `(Router.java)`. Given below is the function which achieves that.
+No matter which option you choose the challenge lies iny connecting the websocket client to a scope for sending  / receiving messages to / from RTMP clients. The answer to this can be found in the virtual `router`” implementation `(Router.java)`. Given below is the function which achieves that.
 
 >>NOTE: this function is adapted from the original example of [red5 websocket chat](#https://github.com/Red5/red5-websocket-chat) posted by `Paul Gregoire`. I would recommend you to clone the project repo to your own system and open it up in your eclipse IDE. 
 ```
@@ -275,4 +275,4 @@ private final class SharedObjectListener implements ISharedObjectListener
 ```
 ---
 
-In the above class `SharedObjectListener` take a note of the method `onSharedObjectUpdate`. On shared object update event we check to make sure that only messages from RTMP clients are relayed to WebSocket Clients. Messages from WebSocket clients are not to prevent duplicate messages. If however you want to send messages from websocket to websocket as well you can design your own unicast / multicast where you check certain parameters such as IP address and relay messages only to specific websocket connections. This is a food for thought and would be left of as a implementation exercise for `truth seekers` :).
+In the above class **SharedObjectListener** take a note of the method **onSharedObjectUpdate**. On shared object update event we check to make sure that only messages from RTMP clients are relayed to WebSocket Clients. Messages from WebSocket clients are not to prevent duplicate messages. If however you want to send messages from websocket to websocket as well you can design your own unicast / multicast where you check certain parameters such as IP address and relay messages only to specific websocket connections. This is a food for thought and would be left of as a implementation exercise for **truth seekers** :).
