@@ -46,6 +46,36 @@ As i mentioned before websocket is available as a Red5 plugin which means that t
 
 It still requires some degree of programing knowledge and understanding of websockets and Red5 scopes in general to be able achieve a seamless integration.
 
+Throughout this article we will be referencing snippets from [red5 websocket chat](#https://github.com/Red5/red5-websocket-chat) sampel application posted by `Paul Gregoire`. If you dont have this application on your system i recommend you clone it to your desktop before proceeeding.
+
+If you look at the red5 web.xml file of this application, you will see  how a reference of the red5 application is made available to the websocket listener via the virtual router (Router.java) using spring bean configuration.
+
+```
+<bean id="web.handler" class="org.red5.demos.chat.Application" />
+
+    <bean id="router" class="org.red5.demos.chat.Router">
+        <property name="app" ref="web.handler" />
+    </bean>
+
+    <!-- WebSocket scope with our listeners -->
+    <bean id="webSocketScopeDefault" class="org.red5.net.websocket.WebSocketScope">
+        <!-- Application scope -->
+        <property name="scope" ref="web.scope" />
+        <!-- The path to which this scope is attached. The special value of "default" 
+            means that it will be added to all paths -->
+        <property name="path" value="default" />
+        <property name="listeners">
+            <list>
+                <bean id="chatListener" class="org.red5.demos.chat.WebSocketChatDataListener">
+                    <property name="router" ref="router" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+```
+You can use similar technique to connect Red5 application adapter and websocket data listener classes.
+
+
 ### The webSocket dilemma of scopes
 
 By its standard implementation a websocket connection knows nothing about the internals of Red5 its capabilities and scopes. 
