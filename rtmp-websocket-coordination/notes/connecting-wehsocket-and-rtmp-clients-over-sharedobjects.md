@@ -146,6 +146,8 @@ rtmp:://{host}:1935/{application}?scope=conference1
 ws:://{host}:8081/{application}/conference1
 ```
 
+![websocket-rtmp-clients-connection](https://github.com/rajdeeprath/red5-server-apps/blob/master/rtmp-websocket-coordination/notes/images/rtmp-websocket-clients.png "Websocket client vs RTMP client connection")
+
 
 No matter which option you choose the challenge lies iny connecting the websocket client to a scope for sending  / receiving messages to / from RTMP clients. The answer to this can be found in the virtual `router`” implementation `(Router.java)` of the sample  websocket app [red5 websocket chat](#https://github.com/Red5/red5-websocket-chat). Given below is the function which achieves that.
 
