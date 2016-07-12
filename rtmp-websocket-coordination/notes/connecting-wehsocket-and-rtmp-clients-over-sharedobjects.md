@@ -1,11 +1,11 @@
-Hey there.. . So this last week i have been working on some websocket stuff on red5 and i came across quite a few ‘gotchas’ and ‘oohs’ that i would really like share with all of you right here.
+Hey there.. . So this last week i have been working on some websocket stuff on Red5Pro and i came across quite a few ‘gotchas’ and ‘oohs’ that i would really like share with all of you right here.
 
-It has been a good few years since that you've been hearing the “flash is dead! all hail HTML5!” campaign. And as we migratory birds start flocking south you would have come across the new guy in town “Websockets”. Well honestly “websocket” isn't that old and certainly not at the time of writing this article. But to the world of Red5 and the exciting new Red5pro it definitely is newer than the stuff you have already been using in Red5. 
+It has been a good few years since that you've been hearing the “flash is dead! all hail HTML5!” campaign. And as we migratory birds start flocking south you would have come across the new guy in town “Websockets”. Well honestly “websocket” isn't that old and certainly not at the time of writing this article. But to the world of Red5 and the exciting new Red5Pro it definitely is newer than the stuff you have already been using till now. 
 
-I won't start explaining what is websockets how it evolved..blah blah because that is not important now. What is important is what it means to us in the context of Red5 and how you can leverage it to build engaging real-time applications. Websocket support in Red5 is implemented as a plugin. This means you don't have to do anything special to get websockets support in there. 
+I won't start explaining what is websockets how it evolved..blah blah because that is not important now. What is important is what it means to us in the context of Red5Pro and how you can leverage it to build engaging real-time applications. Websocket support in Red5Pro / Red5 Open source is implemented as a plugin. This means you don't have to do anything special to get websockets support in there. 
 
 NOTE:
-Don't get ahead of yourself looking up websocket frameworks such as spring websockets or similar. This will just create more trouble. Websockets is already a part of red5 / red5 pro and it knows how to do handshake, how to decode , encode etc. Avoid any third party java-websocket frameworks and just start with vanilla.
+Don't get ahead of yourself looking up websocket frameworks such as spring websockets or similar. This will just create more trouble. Websockets is already a part of Red5 / Red5Pro and it knows how to do handshake, how to decode , encode etc. Avoid any third party java-websocket frameworks and just start with vanilla.
 
 There is a very clean and simple websocket integration example by Paul Gregoire posted on github : https://github.com/Red5/red5-websocket-chat. Make sure to study it first if you are going to build something of your own.
 
@@ -197,8 +197,9 @@ No matter which option you choose the challenge lies iny connecting the websocke
     }
 
 ```
+---
 
-#### Explaination:
+### Explaination:
 
 The function accepts a `path` which is the location of the scope that the websocket client is interested in for messages. This can be parsed from a query string or the websocket path (as discussed before). the second parameter is the schared object name that is wishes to convery messages on. This name nseds to be same for rtmp and websocket clients. 
 
@@ -275,4 +276,4 @@ private final class SharedObjectListener implements ISharedObjectListener
 ```
 ---
 
-In the above class **SharedObjectListener** take a note of the method **onSharedObjectUpdate**. On shared object update event we check to make sure that only messages from RTMP clients are relayed to WebSocket Clients. Messages from WebSocket clients are not to prevent duplicate messages. If however you want to send messages from websocket to websocket as well you can design your own unicast / multicast where you check certain parameters such as IP address and relay messages only to specific websocket connections. This is a food for thought and would be left of as a implementation exercise for **truth seekers** :).
+In the above class `SharedObjectListener` take a note of the method `onSharedObjectUpdate`. On shared object update event we check to make sure that only messages from RTMP clients are relayed to WebSocket Clients. Messages from WebSocket clients are not to prevent duplicate messages. If however you want to send messages from websocket to websocket as well you can design your own unicast / multicast where you check certain parameters such as IP address and relay messages only to specific websocket connections. This is a food for thought and would be left of as a implementation exercise for **truth seekers** :).
