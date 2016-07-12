@@ -271,8 +271,8 @@ private final class SharedObjectListener implements ISharedObjectListener
             router.route(scope, value.toString());
         }
     }
-
 }
 ```
+---
 
-In thr above class `SharedObjectListener` note the method `onSharedObjectUpdate`. On shared object update event we check to make sure that only messages from RTMP clients are relayed to WebSocket Clients. Messages from WebSocket clients are not to prevent duplicate messages. If however you want to send messages from websocket to websocket as well you can design your own unicast / multicast where you check certain parameters such as IP address and relay messages only to specific websocket connections. This is a food for thought and would be left of as a implementation exercise for `truth seekers` :).
+In the above class `SharedObjectListener` take a note of the method `onSharedObjectUpdate`. On shared object update event we check to make sure that only messages from RTMP clients are relayed to WebSocket Clients. Messages from WebSocket clients are not to prevent duplicate messages. If however you want to send messages from websocket to websocket as well you can design your own unicast / multicast where you check certain parameters such as IP address and relay messages only to specific websocket connections. This is a food for thought and would be left of as a implementation exercise for `truth seekers` :).
