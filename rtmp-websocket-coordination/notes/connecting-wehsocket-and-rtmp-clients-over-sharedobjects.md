@@ -1,4 +1,4 @@
-Hey there.. . So this last week i have been working on some websocket stuff on red5 i came across quite a few ‘gotchas’ and ‘oohs’ that i would really like share with all of you right here.
+Hey there.. . So this last week i have been working on some websocket stuff on red5 and i came across quite a few ‘gotchas’ and ‘oohs’ that i would really like share with all of you right here.
 
 It has been a good few years since that you've been hearing the “flash is dead! all hail HTML5!” campaign. And as we migratory birds start flocking south you would have come across the new guy in town “Websockets”. Well honestly “websocket” isn't that old and certainly not at the time of writing this article. But to the world of Red5 and the exciting new Red5pro it definitely is newer than the stuff you have already been using in Red5. 
 
