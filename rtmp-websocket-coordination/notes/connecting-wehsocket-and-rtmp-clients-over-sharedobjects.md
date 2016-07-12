@@ -17,7 +17,7 @@ Traditional system of using a flash client for a chat application involved conne
 
 A scope is a logical separation within Red5, much like logical partitions on a physical hard drive. Scopes give you the advantage of better management of resources when building applications that involve lots of connections. Traditionally scopes were used as “rooms” in  chat application. Interestingly the application itself is a scope within a larger global scope in red5.
 
-![GitHub Logo](/images/scopes.png)
+![GitHub Logo](./images/scopes.png)
 Format: ![Alt Text](url)
 
 
@@ -39,6 +39,7 @@ This will automatically create a subscope in your application by the name {scope
 [IScope](#http://red5.org/javadoc/red5-server-common/org/red5/server/api/scope/IScope.html) 
 and related interface [IScopeStatistics](#http://red5.org/javadoc/red5-server-common/org/red5/server/api/statistics/IScopeStatistics.html).
 
+---
 
 ### Something to know about websockets In Red5
 
