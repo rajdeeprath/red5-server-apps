@@ -17,8 +17,7 @@ Traditional system of using a flash client for a chat application involved conne
 
 A scope is a logical separation within Red5, much like logical partitions on a physical hard drive. Scopes give you the advantage of better management of resources when building applications that involve lots of connections. Traditionally scopes were used as “rooms” in  chat application. Interestingly the application itself is a scope within a larger global scope in red5.
 
-![GitHub Logo](./images/scopes.png)
-Format: ![Alt Text](url)
+![Scope structure](images/scopes.png)
 
 
 Conceptually the scope structure in Red5 would look similar to the diagram shown above. The Global Scope exists from the time the server starts, the application scope is created for each application found in the `RED5_HOME/webapps/` directory. The dynamic user scopes are created on demand, only when a connection requests it and are removed when they are not needed any more. In the context of a ‘chat’ chat application, it suffices to refer to scopes as rooms.
