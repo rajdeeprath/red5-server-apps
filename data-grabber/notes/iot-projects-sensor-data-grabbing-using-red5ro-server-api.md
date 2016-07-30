@@ -9,8 +9,10 @@ Unlike many other use case servers `Red5pro` is a versatile application server w
 
 
 
-## OUR USE CASE : SIMPLE DATA GATHERING FROM SENSORS USING RED5PRO SERVER API
+## EXAMPLE USE CASE : SIMPLE DATA GATHERING FROM SENSORS USING RED5PRO SERVER API
 ---
+
+<img src="images/arduino-setup.jpg" alt="arduino-dht11" class="inline"/>
 
 In this section we shall see how to gather temperature and humidity data from a `DHT11` sensor through `arduino uno` and get it into Red5pro quickly and with minimal effort.
 
