@@ -216,5 +216,5 @@ The string canbe received in your method and converted to a json object to extra
 
 ## CONCLUSION:
 
-Red5pro is perfect candidate for creating rich IOT applications and the availability o fthe red5pro server api makes it equally easy to integrate your IOT clients to your server code without having to create any HTTP api interface on your own.
+Red5pro is perfect candidate for creating rich IOT applications and the availability of the red5pro server api makes it equally easy to integrate your IOT clients to your server code without having to create any HTTP api interface on your own.
 
