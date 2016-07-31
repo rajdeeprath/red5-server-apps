@@ -26,11 +26,11 @@ In this section we shall see how to gather temperature and humidity data from a 
 
 ---
 
-[`Red5pro server api`](#https://www.red5pro.com/docs/server/serverapi/) is a recently launched  component within the composite `Red5pro` architecture, which allows you to interact with Red5pro and its applications at various levels using a simple REST api interface. You cn get more info on Red5pro server api [here](https://www.red5pro.com/docs/server/serverapi/): 
+[`Red5pro server api`](#https://www.red5pro.com/docs/server/serverapi/) is a recently launched  component within the composite `Red5pro` architecture, which allows you to interact with Red5pro and its applications at various levels using a simple REST api interface. You will need to enable and configure  the `api`component in order to make it accessible to your IOT clients.You can get more info on Red5pro server api [here](https://www.red5pro.com/docs/server/serverapi/)
 
 >> NOTE: Make sure that the security settings on the api component are properly configured to allow your IOT client's IP address and also note down the `accessToken` configured in the `api` component for use in your IOT client calls.
 
-For this use case we will be concerning ourselves with a special `api` called `invoke`. As the name suggests you can use the `invoke` call to call any custom method in your main Red5 application class (ApplicationAdapter) without needing to code anything. All you need to do is create a `public` method in your Red5 application class (ApplicationAdapter) which you wish to call (The IOT client data receiever / handler). Given below is the Application class of our sample Red5pro application called `data-grabber`. You can grab the sample application code from GITHUB [here](https://github.com/rajdeeprath/red5-server-apps/tree/master/data-grabber).
+For this case we will be concerning ourselves with a special `api` called `invoke`. As the name suggests you can use the `invoke` call to invoke any custom method in your main Red5 application class (ApplicationAdapter) without needing to code anything. All you need to do is create a `public` method in your Red5 application class (ApplicationAdapter) which you wish to call (The IOT client data receiever / handler). Given below is the Application class of our sample Red5pro application called `data-grabber`. You can grab the sample application code from GITHUB [here](https://github.com/rajdeeprath/red5-server-apps/tree/master/data-grabber).
 
 
 #### Red5 Application Class: (IOT server side)
