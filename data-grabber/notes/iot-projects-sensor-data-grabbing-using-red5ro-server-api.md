@@ -15,7 +15,6 @@ Unlike many other use case servers `Red5pro` is a versatile application server w
 <img src="images/arduino-setup.jpg" alt="arduino-dht11" class="inline"/>
 
 In this section we shall see how to gather temperature and humidity data from a `DHT11` sensor through `arduino uno` and get it into Red5pro quickly and with minimal effort.
-
 ====
 
 #### PREREQUISITES - 
@@ -87,9 +86,10 @@ Next we can see the sample IOT arduino client which reads temperature and humidi
 #### PREREQUISITES - 
  
 * Arduino Uno with `Ethernet shield`
-* `DHT11` sensor (Connection Diagram)
+* `DHT11` sensor
 
-<img src="images/DHT11-Arduino-Sketch-Diagram.png" alt="data-grabber-red5-app" class="inline"/>
+<img src="images/DHT11-Arduino-Sketch-Diagram.png" alt="data-grabber-red5-app" class="inline"/> 
+NOTE: Ethernet shield is not shown in this diagram and is outside the scope of this article. It is assumed that you have basic knowledge of the relevent field.
 
 
 #### Arduino code (IOT client side)
