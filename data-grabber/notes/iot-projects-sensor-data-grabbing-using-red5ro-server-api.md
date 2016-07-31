@@ -89,7 +89,8 @@ Next we can see the sample IOT arduino client which reads temperature and humidi
 * `DHT11` sensor
 
 <img src="images/DHT11-Arduino-Sketch-Diagram.png" alt="data-grabber-red5-app" class="inline"/> 
-NOTE: Ethernet shield is not shown in this diagram and is outside the scope of this article. It is assumed that you have basic knowledge of the relevent field.
+
+>>NOTE: Ethernet shield is not shown in this diagram and is outside the scope of this article. It is assumed that you have basic knowledge of the relevent field.
 
 
 #### Arduino code (IOT client side)
