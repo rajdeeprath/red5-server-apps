@@ -80,7 +80,7 @@ The api call is routed to your application class (ApplicationAdapter), where it 
 You could even use the `invoke` api to create a getter method which other IOT clients can use to read from your Red5 application!!
 
 
-Next we can see the sample IOT arduino client which reads temperature and humidy data via  [DHT11](#https://www.adafruit.com/product/386). This sample arduino sketch can be downloaded from GITHUB [here](#https://github.com/rajdeeprath/Arduino-Sketches/tree/master/red5pro_sensor_client).
+Next we can see the sample IOT arduino client which reads temperature and humidity data via  [DHT11](#https://www.adafruit.com/product/386). This sample arduino sketch can be downloaded from GITHUB [here](#https://github.com/rajdeeprath/Arduino-Sketches/tree/master/red5pro_sensor_client).
 
 ---
 
@@ -197,7 +197,7 @@ void doPost(String data)
 **EXPLANATION:**
 
 
-Whiel most the sketch is self explainatory, the magic is done by creating the data string to be posted along the `invoke` api call.Since we do not support json directly (yet!), you need to convert your data to a string format and pass it as a parameter.
+While most the sketch is self explainatory, the magic is done by creating the data string to be posted along the `invoke` api call.Since we do not support json directly (yet!), you need to convert your data to a string format and pass it as a parameter.
 
 ```
 data = "";
