@@ -82,7 +82,7 @@ The api call is routed to your application class (ApplicationAdapter), where it 
 You could even use the `invoke` api to create a getter method which other IOT clients can use to read from your Red5 application!!
 
 
-Next we can see the sample IOT arduino client which reads temperature and humidity data via  [DHT11](#https://www.adafruit.com/product/386). This sample arduino sketch can be downloaded from GITHUB repository [here](https://github.com/rajdeeprath/iot-data-grabber-demo).
+Next we can see the sample IOT arduino client which reads temperature and humidity data via  [DHT11](#https://www.adafruit.com/product/386) and sends it to a Red5pro server running at `192.168.1.100`. This sample arduino sketch can be downloaded from GITHUB repository [here](https://github.com/rajdeeprath/iot-data-grabber-demo).
 
 ---
 
