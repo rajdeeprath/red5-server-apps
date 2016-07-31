@@ -18,7 +18,12 @@ In this section we shall see how to gather temperature and humidity data from a 
 
 ====
 
-#### PREREQUISITE - Red5pro server api
+#### PREREQUISITES - 
+ 
+* Red5Pro server with the latest api built-in app (Red5pro server api)
+* A custom red5pro application of your own. (data-grabber)
+
+---
 
 [`Red5pro server api`](#https://www.red5pro.com/docs/server/serverapi/) is a recently launched  component within the composite `Red5pro` architecture, which allows you to interact with Red5pro and its applications at various levels using a simple REST api interface. You cn get more info on Red5pro server api [here](#https://www.red5pro.com/docs/server/serverapi/): 
 
@@ -76,6 +81,15 @@ You could even use the `invoke` api to create a getter method which other IOT cl
 
 
 Next we can see the sample IOT arduino client which reads temperature and humidy data via  [DHT11](#https://www.adafruit.com/product/386). This sample arduino sketch can be downloaded from GITHUB [here](#https://github.com/rajdeeprath/Arduino-Sketches/tree/master/red5pro_sensor_client).
+
+---
+
+#### PREREQUISITES - 
+ 
+* Arduino Uno with `Ethernet shield`
+* `DHT11` sensor (Connection Diagram)
+
+<img src="images/1.png" alt="data-grabber-red5-app" class="inline"/>
 
 
 #### Arduino code (IOT client side)
