@@ -75,6 +75,7 @@ Our custom `IOT` client data handler method is called `receiveSensorData` which 
 
 The api call is routed to your application class (ApplicationAdapter), where it scans for the requested method. If the method is found and parameters are compatible then the passed parameters are injected intto that method. From there on you can choose what you wish to do with the data - (store in database / relay over websocket / plot a chart).
 
+**[SCREENSHOT]**
 <img src="images/1.png" alt="data-grabber-red5-app" class="inline"/>
 
 >>FOOD FOR THOUGHT : 
