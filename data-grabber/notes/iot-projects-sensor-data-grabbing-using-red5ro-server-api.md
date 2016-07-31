@@ -89,7 +89,7 @@ Next we can see the sample IOT arduino client which reads temperature and humidi
 * Arduino Uno with `Ethernet shield`
 * `DHT11` sensor (Connection Diagram)
 
-<img src="images/1.png" alt="data-grabber-red5-app" class="inline"/>
+<img src="images/DHT11-Arduino-Sketch-Diagram.png" alt="data-grabber-red5-app" class="inline"/>
 
 
 #### Arduino code (IOT client side)
