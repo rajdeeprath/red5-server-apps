@@ -5,7 +5,7 @@ In this new era of smart web, IOT applications and are finding a special place i
 
 Hardware devices are becoming more and more context aware with the use of cheap and efficient sensors. The only true challenge of IOT projects is data gathering, management and utilization which makes the context worthwile and promising. Thats where Red5 pro comes in!! 
 
-Unlike many other use case servers `Red5pro` is a versatile application server which depicts polymorphism in its role as a solution for projects. `Red5pro` can be seens as a simple `java http server`, a `websocket` server, a live streaming `media server` or even a complex all in one data processing hub, which in-turn automatically introduces red5pro as versatile candidate for IOT projects. 
+Unlike many other use case servers `Red5pro` is a versatile application server which depicts polymorphism in its role as a solution for projects. `Red5pro` can be seens as a simple `java http server`, a `websocket` server, a live streaming `media server` or even a complex all in one data processing hub, which in-turn automatically introduces `Red5pro` as versatile candidate for IOT projects. 
 
 
 
@@ -15,7 +15,7 @@ Unlike many other use case servers `Red5pro` is a versatile application server w
 <img src="images/arduino-setup.jpg" alt="arduino-dht11" class="inline"/>
 
 
-In this section we shall see how to gather temperature and humidity data from a `DHT11` sensor through `arduino uno` and get it into Red5pro quickly and with minimal effort.
+In this section we shall see how to gather temperature and humidity data from a `DHT11` sensor through `arduino uno` and get it into `Red5pro` quickly and with minimal effort.
 
 ====
 
@@ -216,5 +216,5 @@ The string canbe received in your method and converted to a json object to extra
 
 ## CONCLUSION:
 
-Red5pro is perfect candidate for creating rich IOT applications and the availability of the red5pro server api makes it equally easy to integrate your IOT clients to your server code without having to create any HTTP api interface on your own.
+`Red5pro` is perfect candidate for creating rich IOT applications and the availability of the red5pro server api makes it equally easy to integrate your IOT clients to your server code without having to create any HTTP api interface on your own.
 
