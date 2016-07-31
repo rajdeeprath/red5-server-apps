@@ -9,7 +9,7 @@ Unlike many other use case servers `Red5pro` is a versatile application server w
 
 
 
-## EXAMPLE USE CASE : SIMPLE DATA GATHERING FROM SENSORS USING RED5PRO SERVER API
+## SIMPLE DATA GATHERING FROM SENSORS USING RED5PRO SERVER API
 ---
 
 <img src="images/arduino-setup.jpg" alt="arduino-dht11" class="inline"/>
