@@ -92,7 +92,9 @@ Next we can see the sample IOT arduino client which reads temperature and humidi
 
 <img src="images/DHT11-Arduino-Sketch-Diagram.png" alt="data-grabber-red5-app" class="inline"/> 
 
->>NOTE: Ethernet shield is not shown in this diagram and is outside the scope of this article. It is assumed that you have basic knowledge of the relevent field.
+>>NOTE 1: Ethernet shield is not shown in this diagram and is outside the scope of this article. It is assumed that you have basic knowledge of the relevent field.
+
+>>NOTE 2: Make sure all server side stuff is done and your red5ro server is running with the data-grabber application  in it before running the IOT client.
 
 
 #### Arduino code (IOT client side)
