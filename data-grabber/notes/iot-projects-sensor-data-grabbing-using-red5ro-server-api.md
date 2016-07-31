@@ -202,7 +202,7 @@ void doPost(String data)
 **EXPLANATION:**
 
 
-While the sketch is self explainatory through its code, the magic is done by creating the json data string to be posted along the `invoke` api call.Since we do not support json directly (yet!), you need to convert your data to a string format and pass it as a parameter. And on the java side dont forget to return a value (even if its not required).
+While the sketch is self explainatory through its code, the important thing to note is the creating of json data string which will be posted along the `invoke` api call.Since we do not support json directly (yet!), you need to convert your data to a string format and pass it as a parameter. And on the java side dont forget to return a value (even if its not required).
 
 ```
 data = "";
