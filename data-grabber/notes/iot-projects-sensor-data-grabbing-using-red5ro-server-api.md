@@ -213,7 +213,7 @@ data = data + "{\"method\": \"receiveSensorData\",\"parameters\": [\"{\\\"humidi
 The string canbe received in your method and converted to a json object to extract attributes from it by name.
 
 
-## TEASERS:
+## TEASERS: - SOME IDEAS ON WHAT YOU CAN DO WITH RED5PRO
 
 The applicaation scope of IOT projects with red5 is vast. Unlike nodejs, Red5pro is also a media server capable of offering complex  streaming services. Here are a few use cases where you can employ Red5pro in your IOT projects.
 
@@ -223,8 +223,7 @@ The applicaation scope of IOT projects with red5 is vast. Unlike nodejs, Red5pro
 
 3. Remote Image processing : Your could have a IP camera deployed at a remote location which is used for capturing still images along with live stream. You can transmit these live images over to Red5pro where you can then use `Google Cloud Vision API` or a custom mechanism to process the image and identify objects in it. Your live stream will always be available in parallel.
 
-
-
+4. Designing Smart Home Projects : Red5pro can easily handle data based realtime home automation where you capture data from sensors and dispatch data to relays etc:. You can make it more challenging and accurate using IP cameras to capture and process images for object detection and control room switches based on that.
 
 
 ## CONCLUSION:
