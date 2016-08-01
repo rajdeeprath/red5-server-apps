@@ -213,6 +213,19 @@ data = data + "{\"method\": \"receiveSensorData\",\"parameters\": [\"{\\\"humidi
 The string canbe received in your method and converted to a json object to extract attributes from it by name.
 
 
+## TEASERS:
+
+The applicaation scope of IOT projects with red5 is vast. Unlike nodejs, Red5pro is also a media server capable of offering complex  streaming services. Here are a few use cases where you can employ Red5pro in your IOT projects.
+
+1. IP camera streaming : Red5pro is capable of restreaming a RTSP network camera. You can build application to live stream - restream an IP camera and alongside capture various types of data events (such as motion level) that your device may be broadcasting. You may deploy additional sensors to gather environment data such as temperature , air quality etc at the location where your IP camera is deployed.
+
+2. Drone camera streaming : You could have a baseball / soccer match to cover using a remote drone which not only broadcasts live stream but also captures the temperature / humidity / light ambience  / sound and other necessary data to be added for live commentary.
+
+3. Remote Image processing : Your could have a IP camera deployed at a remote location which is used for capturing still images along with live stream. You can transmit these live images over to Red5pro where you can then use `Google Cloud Vision API` or a custom mechanism to process the image and identify objects in it. Your live stream will always be available in parallel.
+
+
+
+
 
 ## CONCLUSION:
 
