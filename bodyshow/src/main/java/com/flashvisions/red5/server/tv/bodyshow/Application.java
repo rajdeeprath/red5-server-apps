@@ -41,6 +41,8 @@ public class Application extends MultiThreadedApplicationAdapter {
 
 	private static Logger logger = LoggerFactory.getLogger(Application.class);
 	private IScope appScope;
+	
+	private String accessToken;
 
 
 	
@@ -88,5 +90,19 @@ public class Application extends MultiThreadedApplicationAdapter {
 		SimpleDateFormat sdf = new SimpleDateFormat();
 	    sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
 	    return sdf.format(new Date(time));
+	}
+
+
+
+
+	public String getAccessToken() {
+		return accessToken;
+	}
+
+
+
+
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
 	}
 }

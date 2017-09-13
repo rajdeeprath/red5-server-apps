@@ -30,6 +30,8 @@
 	<!--
 	Defines the web handler which acts as an applications endpoint
 	-->
-	<bean id="web.handler" class="com.flashvisions.red5.server.tv.bodyshow.Application" />
+	<bean id="web.handler" class="com.flashvisions.red5.server.tv.bodyshow.Application">
+		<property name="accessToken" value="${conf.accessToken}" />
+	</bean>
  
 </beans>
