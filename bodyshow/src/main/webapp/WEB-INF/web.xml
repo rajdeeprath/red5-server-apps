@@ -21,6 +21,17 @@
 		<param-value>/bodyshow</param-value>
 	</context-param>
 	
+	
+	<servlet>
+	   <servlet-name>SampleHttpSevlet</servlet-name>
+	   <servlet-class>org.red5.misc.examples.servlets.SampleHttpSevlet</servlet-class>
+	</servlet>	
+	
+	<servlet-mapping>
+	   <servlet-name>SampleHttpSevlet</servlet-name>
+	   <url-pattern>/endpoint</url-pattern>
+	</servlet-mapping>
+	
 	<listener>
         <listener-class>org.red5.logging.ContextLoggingListener</listener-class>
     </listener>
