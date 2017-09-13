@@ -30,6 +30,6 @@
 	<!--
 	Defines the web handler which acts as an applications endpoint
 	-->
-	<bean id="web.handler" class="org.red5.core.Application" />
+	<bean id="web.handler" class="com.flashvisions.red5.server.tv.bodyshow.Application" />
  
 </beans>

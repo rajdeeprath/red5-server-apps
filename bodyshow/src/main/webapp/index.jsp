@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>My First Maven Red5 Application!</h2>
+<h2>BodyShow Red5 Application</h2>
 </body>
 </html>
