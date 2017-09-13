@@ -19,77 +19,74 @@ package com.flashvisions.red5.server.tv.bodyshow;
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
  */
 
-import org.red5.logging.Red5LoggerFactory;
-import org.red5.server.adapter.MultiThreadedApplicationAdapter;
-import org.red5.server.api.IConnection;
-import org.red5.server.api.scope.IScope;
-import org.red5.server.api.stream.IBroadcastStream;
-//import org.slf4j.Logger;
-import org.red5.server.api.stream.ISubscriberStream;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+import java.util.TimeZone;
 
-/**
- * Sample application that uses the client manager.
- * 
- * @author The Red5 Project (red5@osflash.org)
- */
+import org.red5.server.adapter.MultiThreadedApplicationAdapter;
+import org.red5.server.api.scope.IScope;
+import org.red5.server.api.stream.IClientBroadcastStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.flashvisions.red5.server.tv.bodyshow.model.LiveStream;
+
+
+
+
 public class Application extends MultiThreadedApplicationAdapter {
 
-	//private static Logger log = Red5LoggerFactory.getLogger(Application.class);
+	private static Logger logger = LoggerFactory.getLogger(Application.class);
+	private IScope appScope;
+
 
 	
-	@Override
-	public boolean appConnect(IConnection arg0, Object[] arg1) {
-		// TODO Auto-generated method stub
-		return super.appConnect(arg0, arg1);
-	}
-
-	@Override
-	public void appDisconnect(IConnection arg0) {
-		// TODO Auto-generated method stub
-		super.appDisconnect(arg0);
-	}
-
+	
 	@Override
 	public boolean appStart(IScope arg0) {
-		// TODO Auto-generated method stub
+		logger.info("application started!");
+		this.appScope = arg0;
 		return super.appStart(arg0);
 	}
-
-	@Override
-	public void appStop(IScope arg0) {
-		// TODO Auto-generated method stub
-		super.appStop(arg0);
+	
+	
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public List<LiveStream> getLiveStreams()
+	{
+		List<LiveStream> streams = new ArrayList<LiveStream>();
+		Set<String> names = this.getBroadcastStreamNames(appScope); 
+		
+		for (String name : names) 
+		{
+		    IClientBroadcastStream stream =  (IClientBroadcastStream) this.getBroadcastStream(appScope, name);
+		    LiveStream info = new LiveStream(name);
+		    info.setStartTime(getUTCTime(stream.getCreationTime()));
+		    streams.add(info);
+		}
+		
+		return streams;
 	}
 	
-
-	@Override
-	public void streamBroadcastClose(IBroadcastStream stream) {
-		log.info("streamBroadcastClose {} ", stream);
-		super.streamBroadcastClose(stream);
+	 
+	
+	
+	/**
+	 * 
+	 * @param time
+	 * @return
+	 */
+	private String getUTCTime(long time)
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat();
+	    sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+	    return sdf.format(new Date(time));
 	}
-
-	@Override
-	public void streamBroadcastStart(IBroadcastStream stream) {
-		log.info("streamBroadcastStart {} ", stream);
-		super.streamBroadcastStart(stream);
-	}
-
-	@Override
-	public void streamRecordStart(IBroadcastStream stream) {
-		log.info("streamRecordStart {} ", stream);
-		super.streamRecordStart(stream);
-	}
-
-	@Override
-	public void streamSubscriberClose(ISubscriberStream stream) {
-		log.info("streamSubscriberClose {} ", stream);
-		super.streamSubscriberClose(stream);
-	}
-
-	@Override
-	public void streamSubscriberStart(ISubscriberStream stream) {
-		log.info("streamSubscriberStart {} ", stream);
-		super.streamSubscriberStart(stream);
-	}
-
 }
