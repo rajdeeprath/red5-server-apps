@@ -1,5 +1,6 @@
 package com.flashvisions.red5.server.bodyshow.security;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.red5.server.api.IConnection;
 import org.red5.server.api.Red5;
 import org.red5.server.api.scope.IScope;
@@ -9,7 +10,6 @@ import java.io.DataInputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import org.apache.commons.lang.ArrayUtils;
 
 
 public class PublishSecurity extends SecurityBase implements IStreamPublishSecurity {

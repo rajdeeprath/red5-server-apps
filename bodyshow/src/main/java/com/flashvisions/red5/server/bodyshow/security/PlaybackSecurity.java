@@ -2,7 +2,7 @@ package com.flashvisions.red5.server.bodyshow.security;
 
 import java.io.*;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.red5.server.api.Red5;
 import org.red5.server.api.IConnection;
 import org.red5.server.api.scope.IScope;
