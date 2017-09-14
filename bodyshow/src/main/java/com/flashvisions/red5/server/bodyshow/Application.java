@@ -1,4 +1,4 @@
-package com.flashvisions.red5.server.tv.bodyshow;
+package com.flashvisions.red5.server.bodyshow;
 
 /*
  * RED5 Open Source Flash Server - http://www.osflash.org/red5

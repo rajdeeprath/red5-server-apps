@@ -23,13 +23,13 @@
 	
 	
 	<servlet>
-	   <servlet-name>SampleHttpSevlet</servlet-name>
-	   <servlet-class>org.red5.misc.examples.servlets.SampleHttpSevlet</servlet-class>
+	   <servlet-name>InformationSevlet</servlet-name>
+	   <servlet-class>com.flashvisions.red5.server.bodyshow.InformationSevlet</servlet-class>
 	</servlet>	
 	
 	<servlet-mapping>
-	   <servlet-name>SampleHttpSevlet</servlet-name>
-	   <url-pattern>/endpoint</url-pattern>
+	   <servlet-name>InformationSevlet</servlet-name>
+	   <url-pattern>/information</url-pattern>
 	</servlet-mapping>
 	
 	<listener>

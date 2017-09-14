@@ -1,4 +1,4 @@
-package com.flashvisions.red5.server.tv.bodyshow;
+package com.flashvisions.red5.server.bodyshow.security;
 
 import org.red5.server.adapter.MultiThreadedApplicationAdapter;
 

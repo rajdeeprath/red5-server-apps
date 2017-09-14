@@ -1,6 +1,7 @@
-package com.flashvisions.red5.server.tv.bodyshow;
+package com.flashvisions.red5.server.bodyshow;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
+
+import com.flashvisions.red5.server.tv.bodyshow.model.LiveStream;
 
 public class InformationSevlet extends HttpServlet {
 
@@ -44,17 +47,25 @@ public class InformationSevlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String securityToken = null;
+		List<LiveStream> streams = null;
+		
+		try
+		{
+			securityToken = application.getAccessToken();
+			streams = application.getLiveStreams();
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
 		if(application != null){
 			resp.getWriter().write("Application context path = " + application.getPath());
 		}else{
 			resp.getWriter().write("Error!. Could not resolve reference to application");
 		}
 		
-		
 	}
-	
-	
-	
-	
 
 }
