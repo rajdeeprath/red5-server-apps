@@ -33,5 +33,25 @@
 	<bean id="web.handler" class="com.flashvisions.red5.server.tv.bodyshow.Application">
 		<property name="accessToken" value="${conf.accessToken}" />
 	</bean>
+	
+	<bean id="playbackSecurity" class="org.red5.core.security.PlaybackSecurity" init-method="init">
+		<property name="application" ref="web.handler"/>
+		<property name="htmlDomains" value="/WEB-INF/allowedHTMLdomains.txt"/>
+		<property name="swfDomains" value="/WEB-INF/allowedSWFdomains.txt"/>
+	</bean>
+	
+	<bean id="publishSecurity" class="org.red5.core.security.PublishSecurity" init-method="init">
+		<property name="application" ref="web.handler"/>
+		<property name="htmlDomains" value="/WEB-INF/allowedHTMLdomains.txt"/>
+		<property name="swfDomains" value="/WEB-INF/allowedSWFdomains.txt"/>
+		<property name="publishNames" value="/WEB-INF/allowedPublishNames.txt"/>
+		<property name="enablePublish" value="true"/>
+	</bean>
+	
+	<bean id="securityLoader" class="org.red5.core.security.SecurityLoader" init-method="init">
+		<property name="application" ref="web.handler"/>
+		<property name="playbackSecurity" ref="playbackSecurity"/>
+		<property name="publishSecurity" ref="publishSecurity"/>
+	</bean>	
  
 </beans>
