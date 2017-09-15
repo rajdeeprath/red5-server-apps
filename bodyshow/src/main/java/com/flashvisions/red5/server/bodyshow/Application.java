@@ -39,7 +39,7 @@ import com.flashvisions.red5.server.tv.bodyshow.model.LiveStream;
 
 public class Application extends MultiThreadedApplicationAdapter {
 
-	private static Logger logger = LoggerFactory.getLogger(Application.class);
+	private Logger logger = LoggerFactory.getLogger(Application.class);
 	private IScope appScope;
 	
 	private String accessToken;
